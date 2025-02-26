@@ -1,0 +1,92 @@
+<ion-header [translucent]="true"> </ion-header>
+
+<ion-content [fullscreen]="true">
+  @if(pokemonDetails){
+  <ion-card>
+    <ion-img [src]="pokemonDetails.sprite"></ion-img>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center"
+        >{{pokemonDetails.name}}</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="ion-align-items-center ion-justify-content-start">
+          <ion-col size="3" class="ion-text-center">
+            <ion-text>Tipo</ion-text>
+          </ion-col>
+          <ion-col size="auto">
+            <div class="type-container">
+              <ion-img
+                [src]="'assets/img/'+pokemonDetails.type1+'.gif'"
+                style="width: 80px; height: auto"
+              ></ion-img>
+            </div>
+          </ion-col>
+          <ion-col size="auto">
+            @if (pokemonDetails.type2) {
+            <ion-img
+              [src]="'assets/img/'+pokemonDetails.type2+'.gif'"
+              style="width: 80px; height: auto"
+            ></ion-img>
+            }
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="5" class="ion-text-center">
+            <ion-text> Habilidades </ion-text>
+          </ion-col>
+          <ion-col size="7" class="ion-text-center">
+            @for (ability of pokemonDetails.abilities; track $index) {
+            <ion-text >
+              {{ability}}<br>
+            </ion-text>
+            }
+          </ion-col>
+        </ion-row>
+        @if(pokemonDetails.hiddenAbility) {
+        <ion-row>
+          <ion-col size="5" class="ion-text-center ion-text-nowrap">
+            <ion-text class="ion-text-center"> Habilidad oculta </ion-text>
+          </ion-col>
+          <ion-col size="7" class="ion-text-center">
+            <ion-text class="ion-text-nowrap">
+              {{pokemonDetails.hiddenAbility}} 
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="ion-text-center">
+            <ion-text>
+              <h1>Peso</h1>
+            </ion-text>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <ion-text >
+              {{pokemonDetails.weight/10}} kg
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" class="ion-text-center">
+            <ion-text >
+              <h1>Altura</h1>
+            </ion-text>
+          </ion-col>
+          <ion-col size="8" class="ion-text-center">
+            <ion-text>
+              {{pokemonDetails.height/10}} m
+            </ion-text>
+          </ion-col>
+        </ion-row>
+        }
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  }
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="ion-margin">
+    <ion-fab-button (click)="goBack()"
+      ><ion-icon name="close-circle-outline"></ion-icon
+    ></ion-fab-button>
+  </ion-fab>
+</ion-content>
