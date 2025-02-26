@@ -38,9 +38,7 @@
           </ion-col>
           <ion-col size="7" class="ion-text-center">
             @for (ability of pokemonDetails.abilities; track $index) {
-            <ion-text >
-              {{ability}}<br>
-            </ion-text>
+            <ion-text> {{ability}}<br /> </ion-text>
             }
           </ion-col>
         </ion-row>
@@ -51,7 +49,7 @@
           </ion-col>
           <ion-col size="7" class="ion-text-center">
             <ion-text class="ion-text-nowrap">
-              {{pokemonDetails.hiddenAbility}} 
+              {{pokemonDetails.hiddenAbility}}
             </ion-text>
           </ion-col>
         </ion-row>
@@ -62,21 +60,89 @@
             </ion-text>
           </ion-col>
           <ion-col size="8" class="ion-text-center">
-            <ion-text >
-              {{pokemonDetails.weight/10}} kg
-            </ion-text>
+            <ion-text> {{pokemonDetails.weight/10}} kg </ion-text>
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col size="4" class="ion-text-center">
-            <ion-text >
+            <ion-text>
               <h1>Altura</h1>
             </ion-text>
           </ion-col>
           <ion-col size="8" class="ion-text-center">
+            <ion-text> {{pokemonDetails.height/10}} m </ion-text>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col size="12" class="ion-text-center">
+            <ion-text> Estadísticas base </ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text> PS </ion-text>
+          </ion-col>
+          <ion-col class="ion-text-center">
             <ion-text>
-              {{pokemonDetails.height/10}} m
+              {{pokemonDetails | getStat: 'hp'}}
             </ion-text>
+            
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text> Ataque </ion-text>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-text>
+              {{pokemonDetails | getStat: 'attack'}}
+            </ion-text>
+            
+          </ion-col>
+        </ion-row>
+         <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text> Defensa </ion-text>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-text>
+              {{pokemonDetails | getStat: 'defense'}}
+            </ion-text>
+            
+          </ion-col>
+        </ion-row>
+         <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text> Ataque especial</ion-text>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-text>
+              {{pokemonDetails | getStat: 'special-attack'}}
+            </ion-text>
+            
+          </ion-col>
+        </ion-row>
+         <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text> Defensa especial </ion-text>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-text>
+              {{pokemonDetails | getStat: 'special-defense'}}
+            </ion-text>
+            
+          </ion-col>
+        </ion-row>
+         <ion-row>
+          <ion-col class="ion-text-center">
+            <ion-text> Velocidad </ion-text>
+          </ion-col>
+          <ion-col class="ion-text-center">
+            <ion-text>
+              {{pokemonDetails | getStat: 'speed'}}
+            </ion-text>
+            
           </ion-col>
         </ion-row>
         }

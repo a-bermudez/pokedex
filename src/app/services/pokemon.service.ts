@@ -39,11 +39,9 @@ export class PokemonService {
             promises.push(CapacitorHttp.get(options));
           }
           await Promise.all(promises).then((ress) => {
-            console.log(ress);
-            for (const response of ress) {
+                        for (const response of ress) {
               const pokemonData = response.data;
-              console.log(pokemonData);
-
+              
               const pokemonObj = new Pokemon();
               pokemonObj.id = pokemonData.order;
               pokemonObj.name = pokemonData.name;

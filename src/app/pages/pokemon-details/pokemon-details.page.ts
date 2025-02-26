@@ -27,8 +27,7 @@ export class PokemonDetailsPage implements OnInit {
     await this.pokemonService
       .getPokemonDetails(this.pokemonId)
       .then((response) => {
-        console.log(response.data);
-        if (response?.data) {
+                if (response?.data) {
           this.pokemonDetails = {
             ...response.data,
             sprite: response.data.sprites.front_default,
@@ -45,8 +44,7 @@ export class PokemonDetailsPage implements OnInit {
               return skill.is_hidden;
             }).ability.name,
           };
-          console.log(this.pokemonDetails);
-        }
+                  }
       });
   }
 

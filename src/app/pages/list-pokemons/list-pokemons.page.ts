@@ -33,10 +33,8 @@ export class ListPokemonsPage implements OnInit {
     if (promise) {
       promise
         .then((result: Pokemon[]) => {
-          console.log(result);
-          this.pokemons = this.pokemons.concat(result);
-          console.log(this.pokemons);
-
+                    this.pokemons = this.pokemons.concat(result);
+          
           if ($event) {
             $event.target.complete();
           }
@@ -59,8 +57,7 @@ export class ListPokemonsPage implements OnInit {
   }
 
   goToDetails(pokemonName:string):void {
-    console.log(pokemonName);
-    
+        
     this.router.navigate(['/pokemon-details', pokemonName]);
   }
 }
